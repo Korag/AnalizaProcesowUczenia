@@ -1,0 +1,416 @@
+#Łukasz Czepielik 051392
+#APU Laboratorium 1
+#Wariant: 6
+
+R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R jest oprogramowaniem darmowym i dostarczany jest BEZ JAKIEJKOLWIEK GWARANCJI.
+Możesz go rozpowszechniać pod pewnymi warunkami.
+Wpisz 'license()' lub 'licence()' aby uzyskać szczegóły dystrybucji.
+
+R jest projektem kolaboracyjnym z wieloma uczestnikami.
+Wpisz 'contributors()' aby uzyskać więcej informacji oraz
+'citation()' aby dowiedzieć się jak cytować R lub pakiety R w publikacjach.
+
+Wpisz 'demo()' aby zobaczyć demo, 'help()' aby uzyskać pomoc on-line, lub
+'help.start()' aby uzyskać pomoc w przeglądarce HTML.
+Wpisz 'q()' aby wyjść z R.
+
+Microsoft R Open 3.3.2
+The enhanced R distribution from Microsoft
+Microsoft packages Copyright (C) 2017 Microsoft
+
+Loading Microsoft R Client packages, version 3.3.2.0033. 
+Microsoft R Client limits some functions to available memory.
+See: https://msdn.microsoft.com/en-us/microsoft-r-client-windows for information
+about additional features.
+
+Type 'readme()' for release notes, privacy() for privacy policy, or
+'RevoLicense()' for licensing information.
+
+Using the Intel MKL for parallel mathematical computing(using 2 cores).
+Default CRAN mirror snapshot taken on 2016-11-01.
+See: https://mran.microsoft.com/.
+
+> #Łukasz Czepielik 051392
+> #APU Laboratorium 1
+> #Wariant: 6
+> 
+> #zad.a)
+> a <- 20∗log10(100)
+> b <- a*a*a
+> 
+> a
+[1] 40
+> b
+[1] 64000
+> 
+> min(a,b)
+[1] 40
+> 
+> #zad.b)
+> help("sqrt")
+> 
+> #zad.c)
+> vector <- 80:105
+> vector
+ [1]  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97  98  99 100 101 102 103 104 105
+> 
+> suma <- sum(vector^2)
+> suma
+[1] 223925
+> 
+> #zad.d)
+> apropos("round", mode = "function")
+[1] ".rs.doStripSurrounding" ".rs.stripSurrounding"   ".rs.surround"           "round"                 
+[5] "round.Date"             "round.POSIXt"          
+> 
+> #zad.e)
+> setwd("C:/R_Directory")
+> 
+> var <- "pralka"
+> save(var, file = "ŁukaszCzepielik_apu_sprawozdanie1_plik.txt")
+> 
+> remove(var)
+> var
+function (x, y = NULL, na.rm = FALSE, use) 
+{
+    if (missing(use)) 
+        use <- if (na.rm) 
+            "na.or.complete"
+        else "everything"
+    na.method <- pmatch(use, c("all.obs", "complete.obs", "pairwise.complete.obs", 
+        "everything", "na.or.complete"))
+    if (is.na(na.method)) 
+        stop("invalid 'use' argument")
+    if (is.data.frame(x)) 
+        x <- as.matrix(x)
+    else stopifnot(is.atomic(x))
+    if (is.data.frame(y)) 
+        y <- as.matrix(y)
+    else stopifnot(is.atomic(y))
+    .Call(C_cov, x, y, na.method, FALSE)
+}
+<bytecode: 0x000001b564728358>
+<environment: namespace:stats>
+> 
+> load("ŁukaszCzepielik_apu_sprawozdanie1_plik.txt")
+> var
+[1] "pralka"
+> 
+> #zad.f)
+> install.packages("gridExtra")
+próbowanie adresu URL 'https://mran.revolutionanalytics.com/snapshot/2016-11-01/bin/windows/contrib/3.3/gridExtra_2.2.1.zip'
+Content type 'application/zip' length 483331 bytes (472 KB)
+downloaded 472 KB
+
+package ‘gridExtra’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\Łukasz\AppData\Local\Temp\RtmpC4H9ZW\downloaded_packages
+> library("gridExtra")
+> 
+> help(package = "gridExtra")
+> grid.table(head(trees, n = 10))
+> 
+> #zad.g)
+> vector2 <- seq(1400, 1200, -5)
+> vector2
+ [1] 1400 1395 1390 1385 1380 1375 1370 1365 1360 1355 1350 1345 1340 1335 1330 1325 1320 1315 1310 1305 1300 1295 1290
+[24] 1285 1280 1275 1270 1265 1260 1255 1250 1245 1240 1235 1230 1225 1220 1215 1210 1205 1200
+> 
+> #zad.h)
+> vector3 <- 15:3
+> vector4 <- 24:53
+> 
+> vector43 <- c(vector4, vector3)
+> vector43
+ [1] 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 15 14 13 12 11 10  9  8  7
+[40]  6  5  4  3
+> 
+> #zad.i)
+> nazwa <- c("Whirlpool FWG71283BV PL", "Electrolux EW6S326SPI PerfectCare", "Bosch WAN2826EPL Serie 4 VarioPerfect",
++            "Samsung AddWash WW80K5210UW", "Beko EWTV6636XAW", "Bosch WAE2026EPL Serie 2 VarioPerfect",
++            "Bosch WLT24460PL Serie 6 VarioPerfect", "Samsung AddWash Slim WW60K42109W", "Bosch WAN2406EPL Serie 4 VarioPerfect",
++            "Samsung WF60F4EFW2W", "Beko WRE5511BWW", "Electrolux EW7F348SP PerfectCare",
++            "Samsung WW70J5446FW","Indesit IWSC 51052 C ECO PL", "Bosch WAB20264PL Serie 2 VarioPerfect")
+> pojemność <- c(7, 6, 8, 8, 
++                6, 7, 6.5, 6, 
++                7, 6, 5, 8,
++                7, 5, 6)
+> prędkość_wirowania <- c(1200, 1200, 1400, 1200, 
++                         1200, 1000, 1200, 1200, 
++                         1200, 1200, 1000, 1400, 
++                         1400, 1000, 100)
+> cena <- c(1399, 1549, 1499, 2099,
++           1299, 999, 1699, 1799,
++           1349, 1349, 899, 2099,
++           1599, 799, 1149)
+> liczba_opini <- c(24, 98, 223, 78,
++                   18, 238, 633, 138,
++                   153, 283, 17, 59, 
++                   296, 647, 305)
+> 
+> pralki <- data.frame(nazwa, pojemność, prędkość_wirowania, cena, liczba_opini, stringsAsFactors = FALSE)
+> pralki
+                                   nazwa pojemność prędkość_wirowania cena liczba_opini
+1                Whirlpool FWG71283BV PL       7.0               1200 1399           24
+2      Electrolux EW6S326SPI PerfectCare       6.0               1200 1549           98
+3  Bosch WAN2826EPL Serie 4 VarioPerfect       8.0               1400 1499          223
+4            Samsung AddWash WW80K5210UW       8.0               1200 2099           78
+5                       Beko EWTV6636XAW       6.0               1200 1299           18
+6  Bosch WAE2026EPL Serie 2 VarioPerfect       7.0               1000  999          238
+7  Bosch WLT24460PL Serie 6 VarioPerfect       6.5               1200 1699          633
+8       Samsung AddWash Slim WW60K42109W       6.0               1200 1799          138
+9  Bosch WAN2406EPL Serie 4 VarioPerfect       7.0               1200 1349          153
+10                   Samsung WF60F4EFW2W       6.0               1200 1349          283
+11                       Beko WRE5511BWW       5.0               1000  899           17
+12      Electrolux EW7F348SP PerfectCare       8.0               1400 2099           59
+13                   Samsung WW70J5446FW       7.0               1400 1599          296
+14           Indesit IWSC 51052 C ECO PL       5.0               1000  799          647
+15 Bosch WAB20264PL Serie 2 VarioPerfect       6.0                100 1149          305
+> 
+> mean(pralki$cena)
+[1] 1439
+> 
+> #zad.j)
+> 
+> nowa_pralka <- data.frame(nazwa = "Sharp ES-HFA6103W3", pojemność = 6, prędkość_wirowania = 1000, 
++                           cena = 799, liczba_opini = 117)
+> nowa_pralka
+               nazwa pojemność prędkość_wirowania cena liczba_opini
+1 Sharp ES-HFA6103W3         6               1000  799          117
+> 
+> pralki <- rbind(pralki, nowa_pralka)
+> pralki
+                                   nazwa pojemność prędkość_wirowania cena liczba_opini
+1                Whirlpool FWG71283BV PL       7.0               1200 1399           24
+2      Electrolux EW6S326SPI PerfectCare       6.0               1200 1549           98
+3  Bosch WAN2826EPL Serie 4 VarioPerfect       8.0               1400 1499          223
+4            Samsung AddWash WW80K5210UW       8.0               1200 2099           78
+5                       Beko EWTV6636XAW       6.0               1200 1299           18
+6  Bosch WAE2026EPL Serie 2 VarioPerfect       7.0               1000  999          238
+7  Bosch WLT24460PL Serie 6 VarioPerfect       6.5               1200 1699          633
+8       Samsung AddWash Slim WW60K42109W       6.0               1200 1799          138
+9  Bosch WAN2406EPL Serie 4 VarioPerfect       7.0               1200 1349          153
+10                   Samsung WF60F4EFW2W       6.0               1200 1349          283
+11                       Beko WRE5511BWW       5.0               1000  899           17
+12      Electrolux EW7F348SP PerfectCare       8.0               1400 2099           59
+13                   Samsung WW70J5446FW       7.0               1400 1599          296
+14           Indesit IWSC 51052 C ECO PL       5.0               1000  799          647
+15 Bosch WAB20264PL Serie 2 VarioPerfect       6.0                100 1149          305
+16                    Sharp ES-HFA6103W3       6.0               1000  799          117
+> 
+> mean(pralki$cena)
+[1] 1399
+> 
+> #zad.k)
+> #oceny_klientów <- factor(head(c(seq(0, 5, 0.5), seq(0, 5, 0.5)), n = dim(pralki)[1]))
+> oceny_klientów <- c(5, 5, 5, 5,
++                     4.5, 5, 5, 5,
++                     5, 5, 4.5, 5,
++                     5, 5, 5, 5)
+> oceny_klientów
+ [1] 5.0 5.0 5.0 5.0 4.5 5.0 5.0 5.0 5.0 5.0 4.5 5.0 5.0 5.0 5.0 5.0
+> 
+> pralki <- cbind(pralki, oceny_klientów)
+> pralki
+                                   nazwa pojemność prędkość_wirowania cena liczba_opini oceny_klientów
+1                Whirlpool FWG71283BV PL       7.0               1200 1399           24            5.0
+2      Electrolux EW6S326SPI PerfectCare       6.0               1200 1549           98            5.0
+3  Bosch WAN2826EPL Serie 4 VarioPerfect       8.0               1400 1499          223            5.0
+4            Samsung AddWash WW80K5210UW       8.0               1200 2099           78            5.0
+5                       Beko EWTV6636XAW       6.0               1200 1299           18            4.5
+6  Bosch WAE2026EPL Serie 2 VarioPerfect       7.0               1000  999          238            5.0
+7  Bosch WLT24460PL Serie 6 VarioPerfect       6.5               1200 1699          633            5.0
+8       Samsung AddWash Slim WW60K42109W       6.0               1200 1799          138            5.0
+9  Bosch WAN2406EPL Serie 4 VarioPerfect       7.0               1200 1349          153            5.0
+10                   Samsung WF60F4EFW2W       6.0               1200 1349          283            5.0
+11                       Beko WRE5511BWW       5.0               1000  899           17            4.5
+12      Electrolux EW7F348SP PerfectCare       8.0               1400 2099           59            5.0
+13                   Samsung WW70J5446FW       7.0               1400 1599          296            5.0
+14           Indesit IWSC 51052 C ECO PL       5.0               1000  799          647            5.0
+15 Bosch WAB20264PL Serie 2 VarioPerfect       6.0                100 1149          305            5.0
+16                    Sharp ES-HFA6103W3       6.0               1000  799          117            5.0
+> 
+> tapply(pralki$cena, pralki$oceny_klientów, mean)
+     4.5        5 
+1099.000 1441.857 
+> 
+> #zad.l)
+> nowe_nazwy <- c("Amica DAW 6103 LSW", "Whirlpool EFWSG71283BVPL",
++                 "Bosch WAB24264PL Serie 2 VarioPerfect", "Indesit BWSA 61253 W EU")
+> nowe_pojemności <- c(6, 7, 6, 6)
+> nowe_prędkości_wirowania <- c(1000, 1200, 1200, 1200)
+> nowe_ceny <- c(1099, 1449, 1149, 949)
+> nowe_liczby_opini <- c(180, 57, 268, 107) 
+> nowe_oceny_klientów <- factor(c(5, 5, 5, 5))
+> 
+> nowe_pralki <- data.frame(nazwa = nowe_nazwy, pojemność = nowe_pojemności,
++                           prędkość_wirowania = nowe_prędkości_wirowania, cena = nowe_ceny,
++                           liczba_opini = nowe_liczby_opini, oceny_klientów = nowe_oceny_klientów)
+> 
+> pralki <- rbind(pralki, nowe_pralki)
+> pralki
+                                   nazwa pojemność prędkość_wirowania cena liczba_opini oceny_klientów
+1                Whirlpool FWG71283BV PL       7.0               1200 1399           24              5
+2      Electrolux EW6S326SPI PerfectCare       6.0               1200 1549           98              5
+3  Bosch WAN2826EPL Serie 4 VarioPerfect       8.0               1400 1499          223              5
+4            Samsung AddWash WW80K5210UW       8.0               1200 2099           78              5
+5                       Beko EWTV6636XAW       6.0               1200 1299           18            4.5
+6  Bosch WAE2026EPL Serie 2 VarioPerfect       7.0               1000  999          238              5
+7  Bosch WLT24460PL Serie 6 VarioPerfect       6.5               1200 1699          633              5
+8       Samsung AddWash Slim WW60K42109W       6.0               1200 1799          138              5
+9  Bosch WAN2406EPL Serie 4 VarioPerfect       7.0               1200 1349          153              5
+10                   Samsung WF60F4EFW2W       6.0               1200 1349          283              5
+11                       Beko WRE5511BWW       5.0               1000  899           17            4.5
+12      Electrolux EW7F348SP PerfectCare       8.0               1400 2099           59              5
+13                   Samsung WW70J5446FW       7.0               1400 1599          296              5
+14           Indesit IWSC 51052 C ECO PL       5.0               1000  799          647              5
+15 Bosch WAB20264PL Serie 2 VarioPerfect       6.0                100 1149          305              5
+16                    Sharp ES-HFA6103W3       6.0               1000  799          117              5
+17                    Amica DAW 6103 LSW       6.0               1000 1099          180              5
+18              Whirlpool EFWSG71283BVPL       7.0               1200 1449           57              5
+19 Bosch WAB24264PL Serie 2 VarioPerfect       6.0               1200 1149          268              5
+20               Indesit BWSA 61253 W EU       6.0               1200  949          107              5
+> 
+> statystyki_ocen <- table(pralki$oceny_klientów)
+> statystyki_ocen
+
+4.5   5 
+  2  18 
+> 
+> barplot(statystyki_ocen)
+> 
+> #zad.m)
+> tabela_ocen <- table(pralki$oceny_klientów)
+> wskaźnik_procentowy <- tabela_ocen / sum(tabela_ocen)
+> 
+> tabela_ocen 
+
+4.5   5 
+  2  18 
+> wskaźnik_procentowy
+
+4.5   5 
+0.1 0.9 
+> 
+> pie(wskaźnik_procentowy)
+> 
+> install.packages("plotrix")
+próbowanie adresu URL 'https://mran.revolutionanalytics.com/snapshot/2016-11-01/bin/windows/contrib/3.3/plotrix_3.6-3.zip'
+Content type 'application/zip' length 651737 bytes (636 KB)
+downloaded 636 KB
+
+package ‘plotrix’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\Łukasz\AppData\Local\Temp\RtmpC4H9ZW\downloaded_packages
+> library(plotrix)
+> 
+> fan.plot(tabela_ocen, labels = names(tabela_ocen))
+> 
+> #zad.n)
+> pralki$status_opinii[pralki$liczba_opini > 100] <- "więcej 100 opinii"
+> pralki$status_opinii[pralki$liczba_opini > 50 & pralki$liczba_opini < 100] <- "50-100 opinii"
+> pralki$status_opinii[pralki$liczba_opini < 50] <- "mniej 50 opinii"
+> pralki$status_opinii[pralki$liczba_opini == 0] <- "nie ma"
+> 
+> pralki
+                                   nazwa pojemność prędkość_wirowania cena liczba_opini oceny_klientów     status_opinii
+1                Whirlpool FWG71283BV PL       7.0               1200 1399           24              5   mniej 50 opinii
+2      Electrolux EW6S326SPI PerfectCare       6.0               1200 1549           98              5     50-100 opinii
+3  Bosch WAN2826EPL Serie 4 VarioPerfect       8.0               1400 1499          223              5 więcej 100 opinii
+4            Samsung AddWash WW80K5210UW       8.0               1200 2099           78              5     50-100 opinii
+5                       Beko EWTV6636XAW       6.0               1200 1299           18            4.5   mniej 50 opinii
+6  Bosch WAE2026EPL Serie 2 VarioPerfect       7.0               1000  999          238              5 więcej 100 opinii
+7  Bosch WLT24460PL Serie 6 VarioPerfect       6.5               1200 1699          633              5 więcej 100 opinii
+8       Samsung AddWash Slim WW60K42109W       6.0               1200 1799          138              5 więcej 100 opinii
+9  Bosch WAN2406EPL Serie 4 VarioPerfect       7.0               1200 1349          153              5 więcej 100 opinii
+10                   Samsung WF60F4EFW2W       6.0               1200 1349          283              5 więcej 100 opinii
+11                       Beko WRE5511BWW       5.0               1000  899           17            4.5   mniej 50 opinii
+12      Electrolux EW7F348SP PerfectCare       8.0               1400 2099           59              5     50-100 opinii
+13                   Samsung WW70J5446FW       7.0               1400 1599          296              5 więcej 100 opinii
+14           Indesit IWSC 51052 C ECO PL       5.0               1000  799          647              5 więcej 100 opinii
+15 Bosch WAB20264PL Serie 2 VarioPerfect       6.0                100 1149          305              5 więcej 100 opinii
+16                    Sharp ES-HFA6103W3       6.0               1000  799          117              5 więcej 100 opinii
+17                    Amica DAW 6103 LSW       6.0               1000 1099          180              5 więcej 100 opinii
+18              Whirlpool EFWSG71283BVPL       7.0               1200 1449           57              5     50-100 opinii
+19 Bosch WAB24264PL Serie 2 VarioPerfect       6.0               1200 1149          268              5 więcej 100 opinii
+20               Indesit BWSA 61253 W EU       6.0               1200  949          107              5 więcej 100 opinii
+> 
+> pralki$status_opinii <- factor(pralki$status_opinii)
+> pie(table(pralki$status_opinii))
+> 
+> #zad.o)
+> paste(pralki$nazwa, " ma ocenę klientów ", pralki$oceny_klientów, " bo ma liczbę opinii ", pralki$liczba_opini)
+ [1] "Whirlpool FWG71283BV PL  ma ocenę klientów  5  bo ma liczbę opinii  24"               
+ [2] "Electrolux EW6S326SPI PerfectCare  ma ocenę klientów  5  bo ma liczbę opinii  98"     
+ [3] "Bosch WAN2826EPL Serie 4 VarioPerfect  ma ocenę klientów  5  bo ma liczbę opinii  223"
+ [4] "Samsung AddWash WW80K5210UW  ma ocenę klientów  5  bo ma liczbę opinii  78"           
+ [5] "Beko EWTV6636XAW  ma ocenę klientów  4.5  bo ma liczbę opinii  18"                    
+ [6] "Bosch WAE2026EPL Serie 2 VarioPerfect  ma ocenę klientów  5  bo ma liczbę opinii  238"
+ [7] "Bosch WLT24460PL Serie 6 VarioPerfect  ma ocenę klientów  5  bo ma liczbę opinii  633"
+ [8] "Samsung AddWash Slim WW60K42109W  ma ocenę klientów  5  bo ma liczbę opinii  138"     
+ [9] "Bosch WAN2406EPL Serie 4 VarioPerfect  ma ocenę klientów  5  bo ma liczbę opinii  153"
+[10] "Samsung WF60F4EFW2W  ma ocenę klientów  5  bo ma liczbę opinii  283"                  
+[11] "Beko WRE5511BWW  ma ocenę klientów  4.5  bo ma liczbę opinii  17"                     
+[12] "Electrolux EW7F348SP PerfectCare  ma ocenę klientów  5  bo ma liczbę opinii  59"      
+[13] "Samsung WW70J5446FW  ma ocenę klientów  5  bo ma liczbę opinii  296"                  
+[14] "Indesit IWSC 51052 C ECO PL  ma ocenę klientów  5  bo ma liczbę opinii  647"          
+[15] "Bosch WAB20264PL Serie 2 VarioPerfect  ma ocenę klientów  5  bo ma liczbę opinii  305"
+[16] "Sharp ES-HFA6103W3  ma ocenę klientów  5  bo ma liczbę opinii  117"                   
+[17] "Amica DAW 6103 LSW  ma ocenę klientów  5  bo ma liczbę opinii  180"                   
+[18] "Whirlpool EFWSG71283BVPL  ma ocenę klientów  5  bo ma liczbę opinii  57"              
+[19] "Bosch WAB24264PL Serie 2 VarioPerfect  ma ocenę klientów  5  bo ma liczbę opinii  268"
+[20] "Indesit BWSA 61253 W EU  ma ocenę klientów  5  bo ma liczbę opinii  107"              
+> 
+> #zad.p)
+> write.csv(pralki,'ŁukaszCzepielik_apu_sprawozdanie1_csv.csv')
+> 
+> readFromCSV <- read.csv("ŁukaszCzepielik_apu_sprawozdanie1_csv.csv")
+> readFromCSV
+    X                                 nazwa pojemność prędkość_wirowania cena liczba_opini oceny_klientów
+1   1               Whirlpool FWG71283BV PL       7.0               1200 1399           24            5.0
+2   2     Electrolux EW6S326SPI PerfectCare       6.0               1200 1549           98            5.0
+3   3 Bosch WAN2826EPL Serie 4 VarioPerfect       8.0               1400 1499          223            5.0
+4   4           Samsung AddWash WW80K5210UW       8.0               1200 2099           78            5.0
+5   5                      Beko EWTV6636XAW       6.0               1200 1299           18            4.5
+6   6 Bosch WAE2026EPL Serie 2 VarioPerfect       7.0               1000  999          238            5.0
+7   7 Bosch WLT24460PL Serie 6 VarioPerfect       6.5               1200 1699          633            5.0
+8   8      Samsung AddWash Slim WW60K42109W       6.0               1200 1799          138            5.0
+9   9 Bosch WAN2406EPL Serie 4 VarioPerfect       7.0               1200 1349          153            5.0
+10 10                   Samsung WF60F4EFW2W       6.0               1200 1349          283            5.0
+11 11                       Beko WRE5511BWW       5.0               1000  899           17            4.5
+12 12      Electrolux EW7F348SP PerfectCare       8.0               1400 2099           59            5.0
+13 13                   Samsung WW70J5446FW       7.0               1400 1599          296            5.0
+14 14           Indesit IWSC 51052 C ECO PL       5.0               1000  799          647            5.0
+15 15 Bosch WAB20264PL Serie 2 VarioPerfect       6.0                100 1149          305            5.0
+16 16                    Sharp ES-HFA6103W3       6.0               1000  799          117            5.0
+17 17                    Amica DAW 6103 LSW       6.0               1000 1099          180            5.0
+18 18              Whirlpool EFWSG71283BVPL       7.0               1200 1449           57            5.0
+19 19 Bosch WAB24264PL Serie 2 VarioPerfect       6.0               1200 1149          268            5.0
+20 20               Indesit BWSA 61253 W EU       6.0               1200  949          107            5.0
+       status_opinii
+1    mniej 50 opinii
+2      50-100 opinii
+3  więcej 100 opinii
+4      50-100 opinii
+5    mniej 50 opinii
+6  więcej 100 opinii
+7  więcej 100 opinii
+8  więcej 100 opinii
+9  więcej 100 opinii
+10 więcej 100 opinii
+11   mniej 50 opinii
+12     50-100 opinii
+13 więcej 100 opinii
+14 więcej 100 opinii
+15 więcej 100 opinii
+16 więcej 100 opinii
+17 więcej 100 opinii
+18     50-100 opinii
+19 więcej 100 opinii
+20 więcej 100 opinii
