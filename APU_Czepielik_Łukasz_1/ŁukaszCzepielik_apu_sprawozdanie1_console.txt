@@ -39,7 +39,7 @@ See: https://mran.microsoft.com/.
 > #Wariant: 6
 > 
 > #zad.a)
-> a <- 20∗log10(100)
+> a <- 20*log10(100)
 > b <- a*a*a
 > 
 > a
@@ -176,7 +176,6 @@ The downloaded binary packages are in
 [1] 1439
 > 
 > #zad.j)
-> 
 > nowa_pralka <- data.frame(nazwa = "Sharp ES-HFA6103W3", pojemność = 6, prędkość_wirowania = 1000, 
 +                           cena = 799, liczba_opini = 117)
 > nowa_pralka
@@ -207,11 +206,10 @@ The downloaded binary packages are in
 [1] 1399
 > 
 > #zad.k)
-> #oceny_klientów <- factor(head(c(seq(0, 5, 0.5), seq(0, 5, 0.5)), n = dim(pralki)[1]))
-> oceny_klientów <- c(5, 5, 5, 5,
-+                     4.5, 5, 5, 5,
-+                     5, 5, 4.5, 5,
-+                     5, 5, 5, 5)
+> oceny_klientów <- factor(c(5, 5, 5, 5,
++                            4.5, 5, 5, 5,
++                            5, 5, 4.5, 5,
++                            5, 5, 5, 5))
 > oceny_klientów
  [1] 5.0 5.0 5.0 5.0 4.5 5.0 5.0 5.0 5.0 5.0 4.5 5.0 5.0 5.0 5.0 5.0
 > 

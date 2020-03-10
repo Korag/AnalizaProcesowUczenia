@@ -3,7 +3,7 @@
 #Wariant: 6
 
 #zad.a)
-a <- 20∗log10(100)
+a <- 20*log10(100)
 b <- a*a*a
 
 a
@@ -94,11 +94,10 @@ pralki
 mean(pralki$cena)
 
 #zad.k)
-#oceny_klientów <- factor(head(c(seq(0, 5, 0.5), seq(0, 5, 0.5)), n = dim(pralki)[1]))
-oceny_klientów <- c(5, 5, 5, 5,
-                    4.5, 5, 5, 5,
-                    5, 5, 4.5, 5,
-                    5, 5, 5, 5)
+oceny_klientów <- factor(c(5, 5, 5, 5,
+                          4.5, 5, 5, 5,
+                          5, 5, 4.5, 5,
+                          5, 5, 5, 5))
 oceny_klientów
 
 pralki <- cbind(pralki, oceny_klientów)

@@ -1,0 +1,141 @@
+> library(ahp)
+> library(data.tree)
+> setwd("C:/R_Directory/ŁukaszCzepielik_apu_sprawozdanie2")
+> pralkiAHP <- Load("pralki.yml")
+> 
+> print(pralkiAHP, filterFun = isNotLeaf)
+            levelName
+1 Buy Washing Machine
+2  ¦--wydajnosc      
+3  ¦--jakosc         
+4  ¦--styl           
+5  °--cena           
+> 
+> Calculate(pralkiAHP)
+> print(pralkiAHP, priority = function(x) x$parent$priority["Total", x$name])
+                                       levelName    priority
+1  Buy Washing Machine                                    NA
+2   ¦--wydajnosc                                 0.509189539
+3   ¦   ¦--LG F2J5WN4W                           0.056688399
+4   ¦   ¦--Candy SmartPro CSO4 1275T3\\1-S       0.056688399
+5   ¦   ¦--Electrolux EW6S326SPI PerfectCare     0.056688399
+6   ¦   ¦--Bosch WAE2026EPL Serie 2 VarioPerfect 0.032796667
+7   ¦   ¦--Bosch WLT24460PL Serie 6 VarioPerfect 0.056466398
+8   ¦   ¦--Indesit IWSC 51052 C ECO PL           0.033522773
+9   ¦   ¦--Samsung AddWash Slim WW60K42109W      0.054496495
+10  ¦   ¦--Amica DAW 6103 LSW                    0.031421392
+11  ¦   ¦--Electrolux EW6S306SPX                 0.031421392
+12  ¦   ¦--Sharp ES-HFA6103W3                    0.031421392
+13  ¦   ¦--Amica DAWN8123LCB                     0.051380999
+14  ¦   ¦--Beko WRE5511BWW                       0.030784575
+15  ¦   ¦--Samsung WW80R421HFX                   0.048963857
+16  ¦   ¦--Beko WUE6511XWW                       0.031577407
+17  ¦   ¦--Samsung QuickDrive WW90M74HN2T        0.070662235
+18  ¦   ¦--MPM 4511-PA-21                        0.029593858
+19  ¦   ¦--Electrolux AutoDose EW8F169SPA        0.115051579
+20  ¦   ¦--Hoover AWMPD410LH8R/1-S               0.067769138
+21  ¦   ¦--Whirlpool FWD91496WS EU               0.067769138
+22  ¦   °--Indesit BWSA 61253 WSSS PL            0.044835509
+23  ¦--jakosc                                    0.365072344
+24  ¦   ¦--LG F2J5WN4W                           0.054618706
+25  ¦   ¦--Candy SmartPro CSO4 1275T3\\1-S       0.054618706
+26  ¦   ¦--Electrolux EW6S326SPI PerfectCare     0.054618706
+27  ¦   ¦--Bosch WAE2026EPL Serie 2 VarioPerfect 0.054618706
+28  ¦   ¦--Bosch WLT24460PL Serie 6 VarioPerfect 0.054618706
+29  ¦   ¦--Indesit IWSC 51052 C ECO PL           0.035152963
+30  ¦   ¦--Samsung AddWash Slim WW60K42109W      0.053451720
+31  ¦   ¦--Amica DAW 6103 LSW                    0.053451720
+32  ¦   ¦--Electrolux EW6S306SPX                 0.053451720
+33  ¦   ¦--Sharp ES-HFA6103W3                    0.053451720
+34  ¦   ¦--Amica DAWN8123LCB                     0.053451720
+35  ¦   ¦--Beko WRE5511BWW                       0.031825856
+36  ¦   ¦--Samsung WW80R421HFX                   0.052395185
+37  ¦   ¦--Beko WUE6511XWW                       0.052395185
+38  ¦   ¦--Samsung QuickDrive WW90M74HN2T        0.052395185
+39  ¦   ¦--MPM 4511-PA-21                        0.029869051
+40  ¦   ¦--Electrolux AutoDose EW8F169SPA        0.051403611
+41  ¦   ¦--Hoover AWMPD410LH8R/1-S               0.051403611
+42  ¦   ¦--Whirlpool FWD91496WS EU               0.051403611
+43  ¦   °--Indesit BWSA 61253 WSSS PL            0.051403611
+44  ¦--styl                                      0.034941932
+45  ¦   ¦--LG F2J5WN4W                           0.065508824
+46  ¦   ¦--Candy SmartPro CSO4 1275T3\\1-S       0.065508824
+47  ¦   ¦--Electrolux EW6S326SPI PerfectCare     0.065508824
+48  ¦   ¦--Bosch WAE2026EPL Serie 2 VarioPerfect 0.065508824
+49  ¦   ¦--Bosch WLT24460PL Serie 6 VarioPerfect 0.065508824
+50  ¦   ¦--Indesit IWSC 51052 C ECO PL           0.065508824
+51  ¦   ¦--Samsung AddWash Slim WW60K42109W      0.065508824
+52  ¦   ¦--Amica DAW 6103 LSW                    0.065508824
+53  ¦   ¦--Electrolux EW6S306SPX                 0.065508824
+54  ¦   ¦--Sharp ES-HFA6103W3                    0.065508824
+55  ¦   ¦--Amica DAWN8123LCB                     0.023403938
+56  ¦   ¦--Beko WRE5511BWW                       0.033252020
+57  ¦   ¦--Samsung WW80R421HFX                   0.033252020
+58  ¦   ¦--Beko WUE6511XWW                       0.033252020
+59  ¦   ¦--Samsung QuickDrive WW90M74HN2T        0.033252020
+60  ¦   ¦--MPM 4511-PA-21                        0.033252020
+61  ¦   ¦--Electrolux AutoDose EW8F169SPA        0.033252020
+62  ¦   ¦--Hoover AWMPD410LH8R/1-S               0.033252020
+63  ¦   ¦--Whirlpool FWD91496WS EU               0.033252020
+64  ¦   °--Indesit BWSA 61253 WSSS PL            0.055491664
+65  °--cena                                      0.090796186
+66      ¦--LG F2J5WN4W                           0.020959962
+67      ¦--Candy SmartPro CSO4 1275T3\\1-S       0.046603207
+68      ¦--Electrolux EW6S326SPI PerfectCare     0.020374083
+69      ¦--Bosch WAE2026EPL Serie 2 VarioPerfect 0.046603207
+70      ¦--Bosch WLT24460PL Serie 6 VarioPerfect 0.018574766
+71      ¦--Indesit IWSC 51052 C ECO PL           0.130463277
+72      ¦--Samsung AddWash Slim WW60K42109W      0.013187378
+73      ¦--Amica DAW 6103 LSW                    0.054746238
+74      ¦--Electrolux EW6S306SPX                 0.026986324
+75      ¦--Sharp ES-HFA6103W3                    0.132860402
+76      ¦--Amica DAWN8123LCB                     0.048016863
+77      ¦--Beko WRE5511BWW                       0.097747964
+78      ¦--Samsung WW80R421HFX                   0.010108058
+79      ¦--Beko WUE6511XWW                       0.092373212
+80      ¦--Samsung QuickDrive WW90M74HN2T        0.001591955
+81      ¦--MPM 4511-PA-21                        0.132860402
+82      ¦--Electrolux AutoDose EW8F169SPA        0.001899592
+83      ¦--Hoover AWMPD410LH8R/1-S               0.004180478
+84      ¦--Whirlpool FWD91496WS EU               0.015598837
+85      °--Indesit BWSA 61253 WSSS PL            0.084263793
+> Visualize(pralkiAHP)
+> Analyze(pralkiAHP)
+                      Weight Electrolux AutoDose EW8F169SPA Samsung QuickDrive WW90M74HN2T
+1 Buy Washing Machine 100.0%                           7.9%                           5.6%
+2  ¦--wydajnosc        50.9%                           5.9%                           3.6%
+3  ¦--jakosc           36.5%                           1.9%                           1.9%
+4  ¦--cena              9.1%                           0.0%                           0.0%
+5  °--styl              3.5%                           0.1%                           0.1%
+  Whirlpool FWD91496WS EU Candy SmartPro CSO4 1275T3\\1-S Hoover AWMPD410LH8R/1-S LG F2J5WN4W
+1                    5.6%                            5.5%                    5.5%        5.3%
+2                    3.5%                            2.9%                    3.5%        2.9%
+3                    1.9%                            2.0%                    1.9%        2.0%
+4                    0.1%                            0.4%                    0.0%        0.2%
+5                    0.1%                            0.2%                    0.1%        0.2%
+  Electrolux EW6S326SPI PerfectCare Bosch WLT24460PL Serie 6 VarioPerfect Indesit BWSA 61253 WSSS PL
+1                              5.3%                                  5.3%                       5.1%
+2                              2.9%                                  2.9%                       2.3%
+3                              2.0%                                  2.0%                       1.9%
+4                              0.2%                                  0.2%                       0.8%
+5                              0.2%                                  0.2%                       0.2%
+  Amica DAWN8123LCB Samsung AddWash Slim WW60K42109W Sharp ES-HFA6103W3 Samsung WW80R421HFX Beko WUE6511XWW
+1              5.1%                             5.1%               5.0%                4.6%            4.5%
+2              2.6%                             2.8%               1.6%                2.5%            1.6%
+3              2.0%                             2.0%               2.0%                1.9%            1.9%
+4              0.4%                             0.1%               1.2%                0.1%            0.8%
+5              0.1%                             0.2%               0.2%                0.1%            0.1%
+  Indesit IWSC 51052 C ECO PL Bosch WAE2026EPL Serie 2 VarioPerfect Amica DAW 6103 LSW Electrolux EW6S306SPX
+1                        4.4%                                  4.3%               4.3%                  4.0%
+2                        1.7%                                  1.7%               1.6%                  1.6%
+3                        1.3%                                  2.0%               2.0%                  2.0%
+4                        1.2%                                  0.4%               0.5%                  0.2%
+5                        0.2%                                  0.2%               0.2%                  0.2%
+  MPM 4511-PA-21 Beko WRE5511BWW Inconsistency
+1           3.9%            3.7%         11.1%
+2           1.5%            1.6%          0.9%
+3           1.1%            1.2%          0.4%
+4           1.2%            0.9%         14.9%
+5           0.1%            0.1%          0.2%
+> AnalyzeTable(pralkiAHP)
+> 
