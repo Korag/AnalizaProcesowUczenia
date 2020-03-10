@@ -2,106 +2,165 @@ Version: 2
 
 Alternatives: &alternatives
  LG F2J5WN4W:
-  wydajnosc: 1200
+  max_predkosc_wirowania: 1200
+  pojemnosc: 6.5
+  cena: 1599
+  opinia: 5
+  liczba_opinii: 33
   jakosc: 6
   styl: 5 
-  cena: 1599
  Candy SmartPro CSO4 1275T3\1-S:
-  wydajnosc: 1200
-  jakosc: 6
-  styl: 5
+  max_predkosc_wirowania: 1200
+  pojemnosc: 7
   cena: 1149
+  opinia: 5
+  liczba_opinii: 3
+  jakosc: 6
+  styl: 5
  Electrolux EW6S326SPI PerfectCare:
-  wydajnosc: 1200
-  jakosc: 6
-  styl: 5
+  max_predkosc_wirowania: 1200
+  pojemnosc: 6
   cena: 1649
+  opinia: 5
+  liczba_opinii: 100
+  jakosc: 6
+  styl: 5
  Bosch WAE2026EPL Serie 2 VarioPerfect:
-  wydajnosc: 1000
-  jakosc: 6
-  styl: 5
+  max_predkosc_wirowania: 1000
+  pojemnosc: 7
   cena: 1199
- Bosch WLT24460PL Serie 6 VarioPerfect:
-  wydajnosc: 1200
+  opinia: 5
+  liczba_opinii: 243
   jakosc: 6
   styl: 5
+ Bosch WLT24460PL Serie 6 VarioPerfect:
+  max_predkosc_wirowania: 1200
+  pojemnosc: 6.5
   cena: 1699
+  opinia: 5
+  liczba_opinii: 638
+  jakosc: 6
+  styl: 5
  Indesit IWSC 51052 C ECO PL:
-  wydajnosc: 1000
+  max_predkosc_wirowania: 1000
+  pojemnosc: 5
+  cena: 799
+  opinia: 5
+  liczba_opinii: 648
   jakosc: 5
   styl: 5
-  cena: 799
  Samsung AddWash Slim WW60K42109W:
-  wydajnosc: 1200
-  jakosc: 6
-  styl: 5
+  max_predkosc_wirowania: 1200
+  pojemnosc: 6
   cena: 1799
+  opinia: 5
+  liczba_opinii: 170
+  jakosc: 6
+  styl: 5
  Amica DAW 6103 LSW:
-  wydajnosc: 1000
-  jakosc: 6
-  styl: 5
+  max_predkosc_wirowania: 1000
+  pojemnosc: 6
   cena: 1099
+  opinia: 5
+  liczba_opinii: 184
+  jakosc: 6
+  styl: 5
  Electrolux EW6S306SPX:
-  wydajnosc: 1000
-  jakosc: 6
-  styl: 5
+  max_predkosc_wirowania: 1000
+  pojemnosc: 6
   cena: 1449
- Sharp ES-HFA6103W3:
-  wydajnosc: 1000
+  opinia: 5
+  liczba_opinii: 27
   jakosc: 6
   styl: 5
+ Sharp ES-HFA6103W3:
+  max_predkosc_wirowania: 1000
+  pojemnosc: 6
   cena: 799
+  opinia: 5
+  liczba_opinii: 129
+  jakosc: 6
+  styl: 5
  Amica DAWN8123LCB:
-  wydajnosc: 1200
+  max_predkosc_wirowania: 1200
+  pojemnosc: 8
+  cena: 1299
+  opinia: 3
+  liczba_opinii: 5
   jakosc: 6
   styl: 3
-  cena: 1299
  Beko WRE5511BWW:
-  wydajnosc: 1000
-  jakosc: 5
-  styl: 4
+  max_predkosc_wirowania: 1000
+  pojemnosc: 5
   cena: 899
- Samsung WW80R421HFX:
-  wydajnosc: 1200
-  jakosc: 6
-  styl: 4
-  cena: 1999
- Beko WUE6511XWW:
-  wydajnosc: 1000
-  jakosc: 6
-  styl: 4
-  cena: 949
- Samsung QuickDrive WW90M74HN2T:
-  wydajnosc: 1400
-  jakosc: 6
-  styl: 4
-  cena: 3999
- MPM 4511-PA-21:
-  wydajnosc: 1000
+  opinia: 5
+  liczba_opinii: 20
   jakosc: 5
   styl: 4
-  cena: 799
- Electrolux AutoDose EW8F169SPA:
-  wydajnosc: 1600
-  jakosc: 6
-  styl: 4
-  cena: 3799
- Hoover AWMPD410LH8R/1-S:
-  wydajnosc: 1400
-  jakosc: 6
-  styl: 4
-  cena: 2899
- Whirlpool FWD91496WS EU:
-  wydajnosc: 1400 
-  jakosc: 6
-  styl: 4
-  cena: 1699
- Indesit BWSA 61253 WSSS PL:
-  wydajnosc: 1200
+ Samsung WW80R421HFX:
+  max_predkosc_wirowania: 1200
+  pojemnosc: 8
+  cena: 1999
+  opinia: 4.5
+  liczba_opinii: 9
   jakosc: 6
   styl: 5
+ Beko WUE6511XWW:
+  max_predkosc_wirowania: 1000
+  pojemnosc: 6
   cena: 949
-
+  opinia: 5
+  liczba_opinii: 12
+  jakosc: 6
+  styl: 4
+ Samsung QuickDrive WW90M74HN2T:
+  max_predkosc_wirowania: 1400
+  pojemnosc: 9
+  cena: 3999
+  opinia: 4.5
+  liczba_opinii: 5
+  jakosc: 6
+  styl: 4
+ MPM 4511-PA-21:
+  max_predkosc_wirowania: 1000
+  pojemnosc: 5
+  cena: 799
+  opinia: 4.5
+  liczba_opinii: 20
+  jakosc: 5
+  styl: 4
+ Electrolux AutoDose EW8F169SPA:
+  max_predkosc_wirowania: 1600
+  pojemnosc: 9
+  cena: 3799
+  opinia: 4
+  liczba_opinii: 9
+  jakosc: 6
+  styl: 4
+ Hoover AWMPD410LH8R/1-S:
+  max_predkosc_wirowania: 1400
+  pojemnosc: 10
+  cena: 2899
+  opinia: 4
+  liczba_opinii: 12
+  jakosc: 6
+  styl: 4
+ Whirlpool FWD91496WS EU:
+  max_predkosc_wirowania: 1400
+  pojemnosc: 9
+  cena: 1699
+  opinia: 4
+  liczba_opinii: 3
+  jakosc: 6
+  styl: 4
+ Indesit BWSA 61253 WSSS PL:
+  max_predkosc_wirowania: 1200
+  pojemnosc: 6
+  cena: 949
+  opinia: 5
+  liczba_opinii: 8
+  jakosc: 6
+  styl: 5
 Goal:
  name: Buy Washing Machine
  author: Lukasz Czepielik
