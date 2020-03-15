@@ -1,3 +1,7 @@
+#£ukasz Czepielik 051392
+#APU Laboratorium 1
+#Wariant: 6
+
 install.packages("ahp")
 
 library(ahp)

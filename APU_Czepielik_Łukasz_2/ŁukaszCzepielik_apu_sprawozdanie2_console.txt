@@ -1,3 +1,7 @@
+> #Łukasz Czepielik 051392
+> #APU Laboratorium 2
+> #Wariant: 6
+>
 > library(ahp)
 > library(data.tree)
 > setwd("C:/R_Directory/ŁukaszCzepielik_apu_sprawozdanie2")
