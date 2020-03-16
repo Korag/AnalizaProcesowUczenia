@@ -1,0 +1,146 @@
+> #Łukasz Czepielik 051392
+> #APU Laboratorium 4
+> #Wariant: 6
+> 
+> install.packages("C50")
+Installing package into ‘C:/Users/user/Documents/R/win-library/3.6’
+(as ‘lib’ is unspecified)
+próbowanie adresu URL 'https://cran.rstudio.com/bin/windows/contrib/3.6/C50_0.1.3.zip'
+Content type 'application/zip' length 557536 bytes (544 KB)
+downloaded 544 KB
+
+package ‘C50’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\user\AppData\Local\Temp\RtmpMlE2CB\downloaded_packages
+> library("C50")
+> 
+> setwd("C:/R_Directory/ŁukaszCzepielik_apu_sprawozdanie4/")
+> 
+> pralki <- read.csv("ŁukaszCzepielik_apu_sprawozdanie4_csv.csv")
+> summary(pralki)
+       X                                           nazwa      pojemność     prędkość_wirowania      cena     
+ Min.   : 1.00   Amica DAW 6103 LSW                   : 1   Min.   :5.000   Min.   : 100       Min.   : 799  
+ 1st Qu.: 5.75   Beko EWTV6636XAW                     : 1   1st Qu.:6.000   1st Qu.:1000       1st Qu.:1074  
+ Median :10.50   Beko WRE5511BWW                      : 1   Median :6.000   Median :1200       Median :1349  
+ Mean   :10.50   Bosch WAB20264PL Serie 2 VarioPerfect: 1   Mean   :6.475   Mean   :1125       Mean   :1352  
+ 3rd Qu.:15.25   Bosch WAB24264PL Serie 2 VarioPerfect: 1   3rd Qu.:7.000   3rd Qu.:1200       3rd Qu.:1562  
+ Max.   :20.00   Bosch WAE2026EPL Serie 2 VarioPerfect: 1   Max.   :8.000   Max.   :1400       Max.   :2099  
+                 (Other)                              :14                                                    
+  liczba_opini    oceny_klientów           status_opinii
+ Min.   : 17.00   Min.   :4.50   50-100 opinii    : 4   
+ 1st Qu.: 73.25   1st Qu.:5.00   mniej 50 opinii  : 3   
+ Median :145.50   Median :5.00   więcej 100 opinii:13   
+ Mean   :196.95   Mean   :4.95                          
+ 3rd Qu.:271.75   3rd Qu.:5.00                          
+ Max.   :647.00   Max.   :5.00                          
+                                                        
+> 
+> pralki$oceny_klientów <- factor(pralki$oceny_klientów)
+> pralki
+    X                                 nazwa pojemność prędkość_wirowania cena liczba_opini oceny_klientów
+1   1               Whirlpool FWG71283BV PL       7.0               1200 1399           24              5
+2   2     Electrolux EW6S326SPI PerfectCare       6.0               1200 1549           98              5
+3   3 Bosch WAN2826EPL Serie 4 VarioPerfect       8.0               1400 1499          223              5
+4   4           Samsung AddWash WW80K5210UW       8.0               1200 2099           78              5
+5   5                      Beko EWTV6636XAW       6.0               1200 1299           18            4.5
+6   6 Bosch WAE2026EPL Serie 2 VarioPerfect       7.0               1000  999          238              5
+7   7 Bosch WLT24460PL Serie 6 VarioPerfect       6.5               1200 1699          633              5
+8   8      Samsung AddWash Slim WW60K42109W       6.0               1200 1799          138              5
+9   9 Bosch WAN2406EPL Serie 4 VarioPerfect       7.0               1200 1349          153              5
+10 10                   Samsung WF60F4EFW2W       6.0               1200 1349          283              5
+11 11                       Beko WRE5511BWW       5.0               1000  899           17            4.5
+12 12      Electrolux EW7F348SP PerfectCare       8.0               1400 2099           59              5
+13 13                   Samsung WW70J5446FW       7.0               1400 1599          296              5
+14 14           Indesit IWSC 51052 C ECO PL       5.0               1000  799          647              5
+15 15 Bosch WAB20264PL Serie 2 VarioPerfect       6.0                100 1149          305              5
+16 16                    Sharp ES-HFA6103W3       6.0               1000  799          117              5
+17 17                    Amica DAW 6103 LSW       6.0               1000 1099          180              5
+18 18              Whirlpool EFWSG71283BVPL       7.0               1200 1449           57              5
+19 19 Bosch WAB24264PL Serie 2 VarioPerfect       6.0               1200 1149          268              5
+20 20               Indesit BWSA 61253 W EU       6.0               1200  949          107              5
+       status_opinii
+1    mniej 50 opinii
+2      50-100 opinii
+3  więcej 100 opinii
+4      50-100 opinii
+5    mniej 50 opinii
+6  więcej 100 opinii
+7  więcej 100 opinii
+8  więcej 100 opinii
+9  więcej 100 opinii
+10 więcej 100 opinii
+11   mniej 50 opinii
+12     50-100 opinii
+13 więcej 100 opinii
+14 więcej 100 opinii
+15 więcej 100 opinii
+16 więcej 100 opinii
+17 więcej 100 opinii
+18     50-100 opinii
+19 więcej 100 opinii
+20 więcej 100 opinii
+> 
+> drzewo <- C5.0.default(x=pralki[,-5], y=pralki$oceny_klientów, trials = 10)
+> 
+> summary(drzewo)
+
+Call:
+C5.0.default(x = pralki[, -5], y = pralki$oceny_klientów, trials = 10)
+
+
+C5.0 [Release 2.07 GPL Edition]  	Mon Mar 16 18:06:41 2020
+-------------------------------
+
+Class specified by attribute `outcome'
+
+Read 20 cases (8 attributes) from undefined.data
+
+-----  Trial 0:  -----
+
+Decision tree:
+
+oceny_klientów = 4.5: 4.5 (2)
+oceny_klientów = 5: 5 (18)
+
+*** boosting reduced to 1 trial since last classifier is very accurate
+
+*** boosting abandoned (too few classifiers)
+
+
+Evaluation on training data (20 cases):
+
+	    Decision Tree   
+	  ----------------  
+	  Size      Errors  
+
+	     2    0( 0.0%)   <<
+
+
+	   (a)   (b)    <-classified as
+	  ----  ----
+	     2          (a): class 4.5
+	          18    (b): class 5
+
+
+	Attribute usage:
+
+	100.00%	oceny_klientów
+
+
+Time: 0.0 secs
+
+> drzewo
+
+Call:
+C5.0.default(x = pralki[, -5], y = pralki$oceny_klientów, trials = 10)
+
+Classification Tree
+Number of samples: 20 
+Number of predictors: 7 
+
+Number of boosting iterations: 10 requested;  1 used due to early stopping
+
+Non-standard options: attempt to group attributes
+
+> plot(drzewo)
