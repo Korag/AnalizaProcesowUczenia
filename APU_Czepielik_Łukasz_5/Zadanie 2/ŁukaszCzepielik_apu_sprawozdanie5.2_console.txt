@@ -1,0 +1,122 @@
+> #Łukasz Czepielik 051392
+> #APU Laboratorium 5
+> #Wariant: 6
+> 
+> #Zadanie2
+> install.packages("mlr")
+Installing package into ‘C:/Users/user/Documents/R/win-library/3.6’
+(as ‘lib’ is unspecified)
+próbowanie adresu URL 'https://cran.rstudio.com/bin/windows/contrib/3.6/mlr_2.17.0.zip'
+Content type 'application/zip' length 5419796 bytes (5.2 MB)
+downloaded 5.2 MB
+
+package ‘mlr’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\user\AppData\Local\Temp\RtmpkBWVKb\downloaded_packages
+> install.packages("rFerns")
+Installing package into ‘C:/Users/user/Documents/R/win-library/3.6’
+(as ‘lib’ is unspecified)
+próbowanie adresu URL 'https://cran.rstudio.com/bin/windows/contrib/3.6/rFerns_3.0.0.zip'
+Content type 'application/zip' length 159830 bytes (156 KB)
+downloaded 156 KB
+
+package ‘rFerns’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\user\AppData\Local\Temp\RtmpkBWVKb\downloaded_packages
+> install.packages("randomForestSRC")
+Installing package into ‘C:/Users/user/Documents/R/win-library/3.6’
+(as ‘lib’ is unspecified)
+próbowanie adresu URL 'https://cran.rstudio.com/bin/windows/contrib/3.6/randomForestSRC_2.9.3.zip'
+Content type 'application/zip' length 1984511 bytes (1.9 MB)
+downloaded 1.9 MB
+
+package ‘randomForestSRC’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\user\AppData\Local\Temp\RtmpkBWVKb\downloaded_packages
+> library("mlr")
+Ładowanie wymaganego pakietu: ParamHelpers
+'mlr' is in maintenance mode since July 2019. Future development
+efforts will go into its successor 'mlr3'
+(<https://mlr3.mlr-org.com>).
+> library("rFerns")
+> library("randomForestSRC")
+
+ randomForestSRC 2.9.3 
+ 
+ Type rfsrc.news() to see new features, changes, and bug fixes. 
+ 
+
+
+Dołączanie pakietu: ‘randomForestSRC’
+
+Następujące obiekty zostały zakryte z ‘package:mlr’:
+
+    impute, subsample
+
+> 
+> setwd("C:/R_Directory/ŁukaszCzepielik_apu_sprawozdanie5/")
+> pralki <- read.csv("ŁukaszCzepielik_apu_sprawozdanie5.2_csv.csv")
+> 
+> pralki$oceny_klientów <- factor(pralki$oceny_klientów)
+> 
+> zadanie =
++   makeClassifTask(id = deparse(substitute(pralki)), pralki, "oceny_klientów",
++                   weights = NULL, blocking = NULL, coordinates = NULL,
++                   positive = NA_character_, fixup.data = "warn", check.data = TRUE)
+> 
+> ponowne_probkowanie = makeResampleDesc(method = "CV", iters = 2, stratify = TRUE)
+> 
+> metody_uczenia <- makeLearners(c("rpart", "C50","rFerns",
++                                  "randomForestSRC", "lda"), type = "classif")
+> 
+> porownanie_metod_uczenia <- benchmark(learners = metody_uczenia,
++                                       tasks = zadanie,
++                                       resampling = ponowne_probkowanie)
+Task: pralki, Learner: classif.rpart
+Resampling: cross-validation
+Measures:             mmce      
+[Resample] iter 1:    0.1000000 
+[Resample] iter 2:    0.1000000 
+
+
+Aggregated Result: mmce.test.mean=0.1000000
+
+
+Task: pralki, Learner: classif.C50
+Resampling: cross-validation
+Measures:             mmce      
+[Resample] iter 1:    0.1000000 
+[Resample] iter 2:    0.1000000 
+
+
+Aggregated Result: mmce.test.mean=0.1000000
+
+
+Task: pralki, Learner: classif.rFerns
+Resampling: cross-validation
+Measures:             mmce      
+[Resample] iter 1:    0.9000000 
+[Resample] iter 2:    0.9000000 
+
+
+Aggregated Result: mmce.test.mean=0.9000000
+
+
+Task: pralki, Learner: classif.randomForestSRC
+Resampling: cross-validation
+Measures:             mmce      
+[Resample] iter 1:    0.1000000 
+[Resample] iter 2:    0.1000000 
+
+
+Aggregated Result: mmce.test.mean=0.1000000
+
+
+Task: pralki, Learner: classif.lda
+Resampling: cross-validation
+Measures:             mmce      
+Błąd w poleceniu 'lda.default(x, grouping, ...)':
+  variables  2  3  4  6  8 13 14 15 16 18 appear to be constant within groups
