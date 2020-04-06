@@ -6,106 +6,111 @@
 Installing package into ‘C:/Users/user/Documents/R/win-library/3.6’
 (as ‘lib’ is unspecified)
 próbowanie adresu URL 'https://cran.rstudio.com/bin/windows/contrib/3.6/C50_0.1.3.zip'
-Content type 'application/zip' length 557536 bytes (544 KB)
+Content type 'application/zip' length 557525 bytes (544 KB)
 downloaded 544 KB
 
 package ‘C50’ successfully unpacked and MD5 sums checked
 
 The downloaded binary packages are in
-	C:\Users\user\AppData\Local\Temp\RtmpMlE2CB\downloaded_packages
+	C:\Users\user\AppData\Local\Temp\RtmpgZYrsD\downloaded_packages
 > library("C50")
 > 
 > setwd("C:/R_Directory/ŁukaszCzepielik_apu_sprawozdanie4/")
 > 
 > pralki <- read.csv("ŁukaszCzepielik_apu_sprawozdanie4_csv.csv")
 > summary(pralki)
-       X                                           nazwa      pojemność     prędkość_wirowania      cena     
- Min.   : 1.00   Amica DAW 6103 LSW                   : 1   Min.   :5.000   Min.   : 100       Min.   : 799  
- 1st Qu.: 5.75   Beko EWTV6636XAW                     : 1   1st Qu.:6.000   1st Qu.:1000       1st Qu.:1074  
- Median :10.50   Beko WRE5511BWW                      : 1   Median :6.000   Median :1200       Median :1349  
- Mean   :10.50   Bosch WAB20264PL Serie 2 VarioPerfect: 1   Mean   :6.475   Mean   :1125       Mean   :1352  
- 3rd Qu.:15.25   Bosch WAB24264PL Serie 2 VarioPerfect: 1   3rd Qu.:7.000   3rd Qu.:1200       3rd Qu.:1562  
- Max.   :20.00   Bosch WAE2026EPL Serie 2 VarioPerfect: 1   Max.   :8.000   Max.   :1400       Max.   :2099  
-                 (Other)                              :14                                                    
-  liczba_opini    oceny_klientów           status_opinii
- Min.   : 17.00   Min.   :4.50   50-100 opinii    : 4   
- 1st Qu.: 73.25   1st Qu.:5.00   mniej 50 opinii  : 3   
- Median :145.50   Median :5.00   więcej 100 opinii:13   
- Mean   :196.95   Mean   :4.95                          
- 3rd Qu.:271.75   3rd Qu.:5.00                          
- Max.   :647.00   Max.   :5.00                          
-                                                        
+       X                                           nazwa   
+ Min.   : 1.00   Amica DAW 6103 LSW                   : 1  
+ 1st Qu.: 5.75   Beko EWTV6636XAW                     : 1  
+ Median :10.50   Beko WRE5511BWW                      : 1  
+ Mean   :10.50   Bosch WAB20264PL Serie 2 VarioPerfect: 1  
+ 3rd Qu.:15.25   Bosch WAB24264PL Serie 2 VarioPerfect: 1  
+ Max.   :20.00   Bosch WAE2026EPL Serie 2 VarioPerfect: 1  
+                 (Other)                              :14  
+   pojemność     prędkość_wirowania      cena       liczba_opini   
+ Min.   :5.000   Min.   : 100       Min.   : 799   Min.   : 16.00  
+ 1st Qu.:6.000   1st Qu.:1000       1st Qu.:1074   1st Qu.: 73.25  
+ Median :6.000   Median :1200       Median :1349   Median :145.50  
+ Mean   :6.475   Mean   :1125       Mean   :1352   Mean   :196.55  
+ 3rd Qu.:7.000   3rd Qu.:1200       3rd Qu.:1562   3rd Qu.:271.75  
+ Max.   :8.000   Max.   :1400       Max.   :2099   Max.   :647.00  
+                                                                   
+ oceny_klientów            status_opinii
+ Min.   :3.000   50-100 opinii    : 4   
+ 1st Qu.:4.875   mniej 50 opinii  : 3   
+ Median :5.000   więcej 100 opinii:13   
+ Mean   :4.800                          
+ 3rd Qu.:5.000                          
+ Max.   :5.000                          
+                                        
 > 
 > pralki$oceny_klientów <- factor(pralki$oceny_klientów)
 > pralki
-    X                                 nazwa pojemność prędkość_wirowania cena liczba_opini oceny_klientów
-1   1               Whirlpool FWG71283BV PL       7.0               1200 1399           24              5
-2   2     Electrolux EW6S326SPI PerfectCare       6.0               1200 1549           98              5
-3   3 Bosch WAN2826EPL Serie 4 VarioPerfect       8.0               1400 1499          223              5
-4   4           Samsung AddWash WW80K5210UW       8.0               1200 2099           78              5
-5   5                      Beko EWTV6636XAW       6.0               1200 1299           18            4.5
-6   6 Bosch WAE2026EPL Serie 2 VarioPerfect       7.0               1000  999          238              5
-7   7 Bosch WLT24460PL Serie 6 VarioPerfect       6.5               1200 1699          633              5
-8   8      Samsung AddWash Slim WW60K42109W       6.0               1200 1799          138              5
-9   9 Bosch WAN2406EPL Serie 4 VarioPerfect       7.0               1200 1349          153              5
-10 10                   Samsung WF60F4EFW2W       6.0               1200 1349          283              5
-11 11                       Beko WRE5511BWW       5.0               1000  899           17            4.5
-12 12      Electrolux EW7F348SP PerfectCare       8.0               1400 2099           59              5
-13 13                   Samsung WW70J5446FW       7.0               1400 1599          296              5
-14 14           Indesit IWSC 51052 C ECO PL       5.0               1000  799          647              5
-15 15 Bosch WAB20264PL Serie 2 VarioPerfect       6.0                100 1149          305              5
-16 16                    Sharp ES-HFA6103W3       6.0               1000  799          117              5
-17 17                    Amica DAW 6103 LSW       6.0               1000 1099          180              5
-18 18              Whirlpool EFWSG71283BVPL       7.0               1200 1449           57              5
-19 19 Bosch WAB24264PL Serie 2 VarioPerfect       6.0               1200 1149          268              5
-20 20               Indesit BWSA 61253 W EU       6.0               1200  949          107              5
-       status_opinii
-1    mniej 50 opinii
-2      50-100 opinii
-3  więcej 100 opinii
-4      50-100 opinii
-5    mniej 50 opinii
-6  więcej 100 opinii
-7  więcej 100 opinii
-8  więcej 100 opinii
-9  więcej 100 opinii
-10 więcej 100 opinii
-11   mniej 50 opinii
-12     50-100 opinii
-13 więcej 100 opinii
-14 więcej 100 opinii
-15 więcej 100 opinii
-16 więcej 100 opinii
-17 więcej 100 opinii
-18     50-100 opinii
-19 więcej 100 opinii
-20 więcej 100 opinii
+    X                                 nazwa pojemność prędkość_wirowania
+1   1               Whirlpool FWG71283BV PL       7.0               1200
+2   2     Electrolux EW6S326SPI PerfectCare       6.0               1200
+3   3 Bosch WAN2826EPL Serie 4 VarioPerfect       8.0               1400
+4   4           Samsung AddWash WW80K5210UW       8.0               1200
+5   5                      Beko EWTV6636XAW       6.0               1200
+6   6 Bosch WAE2026EPL Serie 2 VarioPerfect       7.0               1000
+7   7 Bosch WLT24460PL Serie 6 VarioPerfect       6.5               1200
+8   8      Samsung AddWash Slim WW60K42109W       6.0               1200
+9   9 Bosch WAN2406EPL Serie 4 VarioPerfect       7.0               1200
+10 10                   Samsung WF60F4EFW2W       6.0               1200
+11 11                       Beko WRE5511BWW       5.0               1000
+12 12      Electrolux EW7F348SP PerfectCare       8.0               1400
+13 13                   Samsung WW70J5446FW       7.0               1400
+14 14           Indesit IWSC 51052 C ECO PL       5.0               1000
+15 15 Bosch WAB20264PL Serie 2 VarioPerfect       6.0                100
+16 16                    Sharp ES-HFA6103W3       6.0               1000
+17 17                    Amica DAW 6103 LSW       6.0               1000
+18 18              Whirlpool EFWSG71283BVPL       7.0               1200
+19 19 Bosch WAB24264PL Serie 2 VarioPerfect       6.0               1200
+20 20               Indesit BWSA 61253 W EU       6.0               1200
+   cena liczba_opini oceny_klientów     status_opinii
+1  1399           16              3   mniej 50 opinii
+2  1549           98              5     50-100 opinii
+3  1499          223              5 więcej 100 opinii
+4  2099           78            4.5     50-100 opinii
+5  1299           18            4.5   mniej 50 opinii
+6   999          238              5 więcej 100 opinii
+7  1699          633              5 więcej 100 opinii
+8  1799          138              5 więcej 100 opinii
+9  1349          153              5 więcej 100 opinii
+10 1349          283              5 więcej 100 opinii
+11  899           17            4.5   mniej 50 opinii
+12 2099           59            4.5     50-100 opinii
+13 1599          296              5 więcej 100 opinii
+14  799          647              5 więcej 100 opinii
+15 1149          305              5 więcej 100 opinii
+16  799          117              5 więcej 100 opinii
+17 1099          180              5 więcej 100 opinii
+18 1449           57              5     50-100 opinii
+19 1149          268              5 więcej 100 opinii
+20  949          107              5 więcej 100 opinii
 > 
-> drzewo <- C5.0.default(x=pralki[,-5], y=pralki$oceny_klientów, trials = 10)
+> drzewo <- C5.0.default(x=pralki[,-7], y=pralki$oceny_klientów)
 > 
 > summary(drzewo)
 
 Call:
-C5.0.default(x = pralki[, -5], y = pralki$oceny_klientów, trials = 10)
+C5.0.default(x = pralki[, -7], y = pralki$oceny_klientów)
 
 
-C5.0 [Release 2.07 GPL Edition]  	Mon Mar 16 18:06:41 2020
+C5.0 [Release 2.07 GPL Edition]  	Mon Apr 06 16:24:15 2020
 -------------------------------
 
 Class specified by attribute `outcome'
 
 Read 20 cases (8 attributes) from undefined.data
 
------  Trial 0:  -----
-
 Decision tree:
 
-oceny_klientów = 4.5: 4.5 (2)
-oceny_klientów = 5: 5 (18)
-
-*** boosting reduced to 1 trial since last classifier is very accurate
-
-*** boosting abandoned (too few classifiers)
+status_opinii = mniej 50 opinii: 4.5 (3/1)
+status_opinii = więcej 100 opinii: 5 (13)
+status_opinii = 50-100 opinii:
+:...pojemność <= 7: 5 (2)
+    pojemność > 7: 4.5 (2)
 
 
 Evaluation on training data (20 cases):
@@ -114,18 +119,20 @@ Evaluation on training data (20 cases):
 	  ----------------  
 	  Size      Errors  
 
-	     2    0( 0.0%)   <<
+	     4    1( 5.0%)   <<
 
 
-	   (a)   (b)    <-classified as
-	  ----  ----
-	     2          (a): class 4.5
-	          18    (b): class 5
+	   (a)   (b)   (c)    <-classified as
+	  ----  ----  ----
+	           1          (a): class 3
+	           4          (b): class 4.5
+	                15    (c): class 5
 
 
 	Attribute usage:
 
-	100.00%	oceny_klientów
+	100.00%	status_opinii
+	 20.00%	pojemność
 
 
 Time: 0.0 secs
@@ -133,13 +140,13 @@ Time: 0.0 secs
 > drzewo
 
 Call:
-C5.0.default(x = pralki[, -5], y = pralki$oceny_klientów, trials = 10)
+C5.0.default(x = pralki[, -7], y = pralki$oceny_klientów)
 
 Classification Tree
 Number of samples: 20 
 Number of predictors: 7 
 
-Number of boosting iterations: 10 requested;  1 used due to early stopping
+Tree size: 4 
 
 Non-standard options: attempt to group attributes
 

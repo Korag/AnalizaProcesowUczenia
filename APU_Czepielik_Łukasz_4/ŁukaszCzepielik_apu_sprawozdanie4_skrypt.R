@@ -13,7 +13,7 @@ summary(pralki)
 pralki$oceny_klientów <- factor(pralki$oceny_klientów)
 pralki
 
-drzewo <- C5.0.default(x=pralki[,-5], y=pralki$oceny_klientów, trials = 10)
+drzewo <- C5.0.default(x=pralki[,-7], y=pralki$oceny_klientów)
 
 summary(drzewo)
 drzewo
